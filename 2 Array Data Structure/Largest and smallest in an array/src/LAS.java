@@ -13,6 +13,8 @@ public class LAS {
             arr[i] = scanner.nextInt();
         }
 
+        scanner.close();
+
         Arrays.sort(arr);
 
         for(int i : arr)

@@ -12,6 +12,7 @@ public class SLS {
         arr[i] = scanner.nextInt();
        }
 
+       scanner.close();
 
        System.out.println("The second largest is " +secondLargest(arr));
        System.out.println("The second smallest is " +secondSmallest(arr));

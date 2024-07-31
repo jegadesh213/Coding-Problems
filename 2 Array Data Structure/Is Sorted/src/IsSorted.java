@@ -12,6 +12,8 @@ public class IsSorted {
             arr[i] = scanner.nextInt();
         }
 
+        scanner.close();
+
         System.out.println((findSorted(arr))?"Array is Sorted":"Array is not Sorted");
     }
 

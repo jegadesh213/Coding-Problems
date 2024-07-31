@@ -11,6 +11,7 @@ public class LAS2 {
         {
             arr[i] = scanner.nextInt();
         }
+        scanner.close();
 
         System.out.println("The Max number is :" + findMax(arr));
         System.out.println("The Min number is :" + FindMin(arr));
