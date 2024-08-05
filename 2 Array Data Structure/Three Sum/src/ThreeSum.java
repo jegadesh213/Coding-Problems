@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ThreeSum {
@@ -14,8 +15,10 @@ public class ThreeSum {
         scanner.close();
         
         // Normal Method for the three sum Method
-        System.out.println(findTheTriplet(arr,n,x));
+        // System.out.println(findTheTriplet(arr,n,x));
 
+        // Using two pointer We can solve this method by
+        doublePointerTriplet(arr,n,x);
 
     }
 
@@ -36,5 +39,24 @@ public class ThreeSum {
         return count;
     }
 
-
+    static boolean doublePointerTriplet(int arr[],int n,int x){
+        Arrays.sort(arr);
+        for(int i=0;i<n;i++){
+            int l = 0;
+            int r = n-1;
+            while (l<r) {
+                if(arr[i]+arr[l]+arr[r] == x){
+                    System.out.println(arr[i] + " " +arr[l] + " "+arr[r]);
+                    return true;
+                }
+                else if(arr[i]+arr[l]+arr[r] < x){
+                    l++;
+                }
+                else{
+                    r--;
+                }
+            }
+        }
+        return false;
+    }
 }
