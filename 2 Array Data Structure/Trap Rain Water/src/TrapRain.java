@@ -14,9 +14,12 @@ public class TrapRain {
         }
 
         scanner.close();
-        
+
         // Using Normal Brute Force Method
-        System.out.println(calculateTheTrap(arr, n));
+        // System.out.println(calculateTheTrap(arr, n));
+
+        // Using Stack we can implement the problem solution as
+        System.out.println(calculateTheTrapEff(arr, n));
     }
 
     static int calculateTheTrap(int[] arr,int n){
@@ -39,5 +42,33 @@ public class TrapRain {
         return trap;
     }
 
+    static int calculateTheTrapEff(int[] arr,int n){
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
 
+        int left = 0, right = arr.length - 1;
+        int left_max = 0, right_max = 0;
+        int waterTrapped = 0;
+
+        while (left < right) {
+            if (arr[left] < arr[right]) {
+                if (arr[left] >= left_max) {
+                    left_max = arr[left];  // Update left max
+                } else {
+                    waterTrapped += left_max - arr[left];  // Water trapped at current left
+                }
+                left++;  // Move left pointer inward
+            } else {
+                if (arr[right] >= right_max) {
+                    right_max = arr[right];  // Update right max
+                } else {
+                    waterTrapped += right_max - arr[right];  // Water trapped at current right
+                }
+                right--;  // Move right pointer inward
+            }
+        }
+
+        return waterTrapped;
+    }
 }
