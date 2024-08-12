@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class DiagonalMatrix {
@@ -22,19 +21,17 @@ public class DiagonalMatrix {
     }
 
     static void printDiagonal(int[][] arr,int n,int m){
-        int mode = 0, it = 0, lower = 0; 
+        int mode = 0, lower = 0; 
 
         for (int t = 0; t < (2 * n - 1); t++) { 
             int t1 = t; 
             if (t1 >= n) { 
                 mode++; 
                 t1 = n - 1; 
-                it--; 
                 lower++; 
             } 
             else { 
                 lower = 0; 
-                it++; 
             } 
             for (int i = t1; i >= lower; i--) { 
                 if ((t1 + mode) % 2 == 0) { 
